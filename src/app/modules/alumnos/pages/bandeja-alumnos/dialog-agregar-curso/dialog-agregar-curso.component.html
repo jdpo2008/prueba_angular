@@ -1,0 +1,456 @@
+<div class="flex flex-row justify-center">
+  <div
+    class="
+      flex flex-col
+      justify-center
+      w-full
+      px-4
+      bg-white
+      rounded-lg
+      shadow
+      dark:bg-gray-800
+      sm:px-6
+      md:px-8
+      lg:px-10
+    "
+  >
+    <div class="flex flex-row justify-between">
+      <h2>Agregar Curso</h2>
+      <button (click)="dialogRef.close(null)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="flex flex-row mb-2">
+      <div>
+        <button
+          type="button"
+          class="
+            py-2
+            px-4
+            flex
+            justify-center
+            items-center
+            bg-blue-500
+            hover:bg-blue-700
+            focus:ring-blue-500 focus:ring-offset-blue-200
+            text-white
+            w-full
+            transition
+            ease-in
+            duration-200
+            text-center text-base
+            font-semibold
+            shadow-md
+            focus:outline-none focus:ring-2 focus:ring-offset-2
+            rounded-full
+          "
+          (click)="addRow()"
+        >
+          <mat-icon
+            svgIcon="fontawesome_duotone:plus"
+            class="mr-0.5"
+          ></mat-icon>
+          Agregar
+        </button>
+      </div>
+    </div>
+    <div class="flex flex-row">
+      <div class="flex-1 content-table">
+        <table
+          mat-table
+          [dataSource]="dataSource"
+          matTableExporter
+          style="overflow-y: scroll; width: 100%"
+          class="mat-cell"
+        >
+          <ng-container [matColumnDef]="'cantidad'">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="bg-gray-700 text-white font-medium text-sm"
+            >
+              #
+            </th>
+            <td mat-cell *matCellDef="let element; let i = index"></td>
+          </ng-container>
+          <ng-container [matColumnDef]="'select'">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="bg-gray-700 text-white font-medium text-sm"
+            >
+              Curso
+            </th>
+            <td mat-cell *matCellDef="let element; let i = index">
+              <div class="relative">
+                <select
+                  class="
+                    block
+                    text-gray-700
+                    py-2
+                    px-3
+                    border border-gray-300
+                    bg-white
+                    placeholder-gray-400
+                    rounded-lg
+                    shadow-sm
+                    text-base
+                    focus:outline-none
+                    focus:ring-2
+                    focus:ring-purple-600
+                    focus:border-transparent
+                  "
+                  [(ngModel)]="element.cursoId"
+                >
+                  <option [value]="0">--Seleccione--</option>
+                  <option *ngFor="let item of listCurso" [value]="item.id">
+                    {{ item.nombre }}
+                  </option>
+                </select>
+              </div>
+            </td>
+          </ng-container>
+          <ng-container [matColumnDef]="'parcial'">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="bg-gray-700 text-white font-medium text-sm"
+              style="text-align: right"
+            >
+              Nota Parcial
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element; let i = index"
+              style="text-align: right"
+            >
+              <div class="relative">
+                <input
+                  type="text"
+                  id="create-account-pseudo"
+                  class="
+                    rounded-lg
+                    border-transparent
+                    flex-1
+                    appearance-none
+                    border border-gray-300
+                    w-3/4
+                    py-2
+                    px-4
+                    bg-white
+                    text-gray-700
+                    placeholder-gray-400
+                    shadow-sm
+                    text-base
+                    focus:outline-none
+                    focus:ring-2
+                    focus:ring-purple-600
+                    focus:border-transparent
+                  "
+                  placeholder="Parcial"
+                  maxlength="8"
+                  [(ngModel)]="element.parcial"
+                />
+              </div>
+            </td>
+          </ng-container>
+          <ng-container [matColumnDef]="'practica'">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="bg-gray-700 text-white font-medium text-sm"
+              style="text-align: right"
+            >
+              Nota Practica
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element; let i = index"
+              style="text-align: right"
+            >
+              <div class="relative">
+                <input
+                  type="text"
+                  id="create-account-pseudo"
+                  class="
+                    rounded-lg
+                    border-transparent
+                    flex-1
+                    appearance-none
+                    border border-gray-300
+                    w-3/4
+                    py-2
+                    px-4
+                    bg-white
+                    text-gray-700
+                    placeholder-gray-400
+                    shadow-sm
+                    text-base
+                    focus:outline-none
+                    focus:ring-2
+                    focus:ring-purple-600
+                    focus:border-transparent
+                  "
+                  placeholder="Practica"
+                  maxlength="8"
+                  [(ngModel)]="element.practicas"
+                />
+              </div>
+            </td>
+          </ng-container>
+          <ng-container [matColumnDef]="'final'">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="bg-gray-700 text-white font-medium text-sm"
+              style="text-align: right"
+            >
+              Nota Final
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element; let i = index"
+              style="text-align: right"
+            >
+              <div class="relative">
+                <input
+                  type="text"
+                  id="create-account-pseudo"
+                  class="
+                    rounded-lg
+                    border-transparent
+                    flex-1
+                    appearance-none
+                    border border-gray-300
+                    w-3/4
+                    py-2
+                    px-4
+                    bg-white
+                    text-gray-700
+                    placeholder-gray-400
+                    shadow-sm
+                    text-base
+                    focus:outline-none
+                    focus:ring-2
+                    focus:ring-purple-600
+                    focus:border-transparent
+                  "
+                  placeholder="Parcial"
+                  maxlength="8"
+                  [(ngModel)]="element.final"
+                />
+              </div>
+            </td>
+          </ng-container>
+          <ng-container [matColumnDef]="'p_practica'">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="bg-gray-700 text-white font-medium text-sm"
+              style="text-align: right"
+            >
+              Media Practica
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element; let i = index"
+              style="text-align: right"
+            >
+              <div class="relative">
+                <input
+                  type="text"
+                  id="create-account-pseudo"
+                  class="
+                    rounded-lg
+                    border-transparent
+                    flex-1
+                    appearance-none
+                    border border-gray-300
+                    w-3/4
+                    py-2
+                    px-4
+                    bg-white
+                    text-gray-700
+                    placeholder-gray-400
+                    shadow-sm
+                    text-base
+                    focus:outline-none
+                    focus:ring-2
+                    focus:ring-purple-600
+                    focus:border-transparent
+                  "
+                  placeholder="Promedio Practica"
+                  maxlength="8"
+                  [(ngModel)]="element.promedioPracticas"
+                />
+              </div>
+            </td>
+          </ng-container>
+          <ng-container [matColumnDef]="'p_parcial'">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="bg-gray-700 text-white font-medium text-sm"
+              style="text-align: right"
+            >
+              Media Parcial
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element; let i = index"
+              style="text-align: right"
+            >
+              <div class="relative">
+                <input
+                  type="text"
+                  id="create-account-pseudo"
+                  class="
+                    rounded-lg
+                    border-transparent
+                    flex-1
+                    appearance-none
+                    border border-gray-300
+                    w-3/4
+                    py-2
+                    px-4
+                    bg-white
+                    text-gray-700
+                    placeholder-gray-400
+                    shadow-sm
+                    text-base
+                    focus:outline-none
+                    focus:ring-2
+                    focus:ring-purple-600
+                    focus:border-transparent
+                  "
+                  placeholder="Promedio Parcial"
+                  maxlength="8"
+                  [(ngModel)]="element.promedioParcial"
+                />
+              </div>
+            </td>
+          </ng-container>
+          <ng-container [matColumnDef]="'p_final'">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="bg-gray-700 text-white font-medium text-sm"
+              style="text-align: right"
+            >
+              Media Final
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element; let i = index"
+              style="text-align: right"
+            >
+              <div class="relative">
+                <input
+                  type="text"
+                  id="create-account-pseudo"
+                  class="
+                    rounded-lg
+                    border-transparent
+                    flex-1
+                    appearance-none
+                    border border-gray-300
+                    w-3/4
+                    py-2
+                    px-4
+                    bg-white
+                    text-gray-700
+                    placeholder-gray-400
+                    shadow-sm
+                    text-base
+                    focus:outline-none
+                    focus:ring-2
+                    focus:ring-purple-600
+                    focus:border-transparent
+                  "
+                  placeholder="Final"
+                  maxlength="8"
+                  [(ngModel)]="element.promedioFinal"
+                />
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns" sticky></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+        <div class="col-xs-12 col-sm-10" style="padding-right: 0">
+          <mat-paginator
+            [pageSizeOptions]="[5, 10, 25]"
+            showFirstLastButtons
+          ></mat-paginator>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-row mb-2 justify-end">
+      <div>
+        <button
+          type="button"
+          class="
+            py-2
+            px-4
+            flex
+            justify-center
+            items-center
+            bg-green-500
+            hover:bg-green-700
+            focus:ring-green-500 focus:ring-offset-green-200
+            text-white
+            w-full
+            transition
+            ease-in
+            duration-200
+            text-center text-base
+            font-semibold
+            shadow-md
+            focus:outline-none focus:ring-2 focus:ring-offset-2
+            rounded-full
+          "
+          (click)="dialogRef.close({ data: dataSource.data, confirmed: true })"
+        >
+          <mat-icon
+            svgIcon="fontawesome_duotone:save"
+            class="mr-0.5"
+          ></mat-icon>
+          Guardar
+        </button>
+      </div>
+      <div>
+        <button
+          type="button"
+          class="
+            py-2
+            px-4
+            flex
+            justify-center
+            items-center
+            bg-red-500
+            hover:bg-red-700
+            focus:ring-red-500 focus:ring-offset-red-200
+            text-white
+            w-full
+            transition
+            ease-in
+            duration-200
+            text-center text-base
+            font-semibold
+            shadow-md
+            focus:outline-none focus:ring-2 focus:ring-offset-2
+            rounded-full
+          "
+          (click)="dialogRef.close(null)"
+        >
+          <mat-icon
+            svgIcon="fontawesome_duotone:minus"
+            class="mr-0.5"
+          ></mat-icon>
+          Salir
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

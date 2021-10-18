@@ -1,0 +1,101 @@
+<div class="flex flex-row justify-center">
+  <div
+    class="
+      flex flex-col
+      justify-center
+      max-w-md
+      px-4
+      bg-white
+      rounded-lg
+      shadow
+      dark:bg-gray-800
+      sm:px-6
+      md:px-8
+      lg:px-10
+    "
+  >
+    <div
+      class="
+        self-center
+        text-sm
+        font-light
+        text-gray-800
+        sm:text-xl
+        dark:text-white
+      "
+    >
+      <h2>{{ titulo }}</h2>
+    </div>
+
+    <div class="flex flex-col">
+      <img src="./assets/images/delete-usuario.svg" alt="" srcset="" />
+
+      <h4>Estas seguro de eliminar el Estudiante:</h4>
+      <span>{{ nombre }}</span>
+      <br />
+      <div class="flex flex-row justify-center">
+        <button
+          type="button"
+          class="
+            py-2
+            px-4
+            flex
+            justify-center
+            items-center
+            bg-green-500
+            hover:bg-green-700
+            focus:ring-green-500 focus:ring-offset-green-200
+            text-white
+            w-auto
+            transition
+            ease-in
+            duration-200
+            text-center text-base
+            font-semibold
+            shadow-md
+            focus:outline-none focus:ring-2 focus:ring-offset-2
+            rounded-full
+            mr-1
+          "
+          (click)="dialogRef.close(true)"
+        >
+          <mat-icon
+            svgIcon="fontawesome_duotone:thumbs-up"
+            class="mr-0.5"
+          ></mat-icon>
+          {{ guardarButtonText }}
+        </button>
+        <button
+          type="button"
+          class="
+            py-2
+            px-4
+            flex
+            justify-center
+            items-center
+            bg-red-500
+            hover:bg-red-700
+            focus:ring-red-500 focus:ring-offset-red-200
+            text-white
+            w-auto
+            transition
+            ease-in
+            duration-200
+            text-center text-base
+            font-semibold
+            shadow-md
+            focus:outline-none focus:ring-2 focus:ring-offset-2
+            rounded-full
+          "
+          (click)="dialogRef.close(false)"
+        >
+          <mat-icon
+            svgIcon="fontawesome_duotone:thumbs-down"
+            class="mr-0.5"
+          ></mat-icon>
+          {{ cancelButtonText }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
