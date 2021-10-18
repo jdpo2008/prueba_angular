@@ -1,0 +1,11 @@
+C:\Users\USUARIO\source\repos\AP_Prueba_Angular\AP_Examen.Dominio\bin\Debug\net5.0\AP_Examen.Dominio.deps.json
+C:\Users\USUARIO\source\repos\AP_Prueba_Angular\AP_Examen.Dominio\bin\Debug\net5.0\AP_Examen.Dominio.dll
+C:\Users\USUARIO\source\repos\AP_Prueba_Angular\AP_Examen.Dominio\bin\Debug\net5.0\ref\AP_Examen.Dominio.dll
+C:\Users\USUARIO\source\repos\AP_Prueba_Angular\AP_Examen.Dominio\bin\Debug\net5.0\AP_Examen.Dominio.pdb
+C:\Users\USUARIO\source\repos\AP_Prueba_Angular\AP_Examen.Dominio\obj\Debug\net5.0\AP_Examen.Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USUARIO\source\repos\AP_Prueba_Angular\AP_Examen.Dominio\obj\Debug\net5.0\AP_Examen.Dominio.AssemblyInfoInputs.cache
+C:\Users\USUARIO\source\repos\AP_Prueba_Angular\AP_Examen.Dominio\obj\Debug\net5.0\AP_Examen.Dominio.AssemblyInfo.cs
+C:\Users\USUARIO\source\repos\AP_Prueba_Angular\AP_Examen.Dominio\obj\Debug\net5.0\AP_Examen.Dominio.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\source\repos\AP_Prueba_Angular\AP_Examen.Dominio\obj\Debug\net5.0\AP_Examen.Dominio.dll
+C:\Users\USUARIO\source\repos\AP_Prueba_Angular\AP_Examen.Dominio\obj\Debug\net5.0\ref\AP_Examen.Dominio.dll
+C:\Users\USUARIO\source\repos\AP_Prueba_Angular\AP_Examen.Dominio\obj\Debug\net5.0\AP_Examen.Dominio.pdb
